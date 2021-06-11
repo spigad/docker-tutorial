@@ -26,5 +26,11 @@ markdown_extensions:
 nav:
   - Introduction: 
     - Building images interactively: 'intro/index.md'
+  - Dockerfiles: 
+    - Write the first Dockerfile: 'dockerfile/firsdockrefile.md'
+    - CMD and ENTRYPOINT: 'dockerfile/cmd-entrypoint.md'
+    - COPY: 'dockerfile/copy.md'
+    - Publishing images to the Docker hub: 'dockerfile/dockerhub.md'
+
 
 copyright: Copyright &copy; 2021 INFN
