@@ -1,4 +1,3 @@
-
 This is a quick recap of things that you already saw in the Part-1. The following steps guide you toward the interactive image building process. 
 
 ###Getting an image and apply some changes
@@ -93,7 +92,7 @@ A /usr/share/figlet/646-hu.flc
     -  D	A file or directory was deleted
     -  C	A file or directory was changed
 
-#Commit the changes and use your image
+###Commit the changes and use your image
 
 The last step is now to commit the changes, that way we will create a new layer with the changes we made before, and a new image using this new layer.
 
@@ -109,11 +108,11 @@ Here we go!  we have build our first image interactively! Let's run it and test 
 docker run -ti interactivefiglet 
 ```
 
-and test it by typing something like the following:
+once you entered the container you can type  something like the following:
 
 === "Command"
 ```bash
-root@be9e5e08db21:/# figlet ciao ciao 
+figlet ciao ciao 
 ```
 you will get your expected output: 
 
@@ -127,4 +126,6 @@ you will get your expected output:
 root@be9e5e08db21:/#
 ```
 
+This is ok for quick & dirty test and playground .. but what about if we need to be reproducible, automated ? 
+To this end we need to learn the build process by writing a Dockerfile.
 

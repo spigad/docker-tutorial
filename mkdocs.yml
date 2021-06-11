@@ -26,7 +26,5 @@ markdown_extensions:
 nav:
   - Introduction: 
     - Building images interactively: 'intro/index.md'
-  - Building docker images with Dockerfiles:
-    - First step: 'intro/index.md'
 
 copyright: Copyright &copy; 2021 INFN
