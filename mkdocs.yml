@@ -24,7 +24,8 @@ markdown_extensions:
   - attr_list
    
 nav:
-  - Intro: 
-    - Docker info: 'intro/index.md'
+  - Building images interactively : 
+    - First step: 'intro/index.md'
+  - Building docker images with Dockerfiles:
 
 copyright: Copyright &copy; 2021 INFN
