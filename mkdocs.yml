@@ -28,9 +28,10 @@ nav:
     - Building images interactively: 'intro/index.md'
   - Dockerfiles: 
     - Write the first Dockerfile: 'dockerfile/firsdockrefile.md'
-    - CMD and ENTRYPOINT: 'dockerfile/cmd-entrypoint.md'
-    - COPY: 'dockerfile/copy.md'
-    - Publishing images to the Docker hub: 'dockerfile/dockerhub.md'
+    - The CMD and ENTRYPOINT verbs: 'dockerfile/cmd-entrypoint.md'
+    - The COPY command: 'dockerfile/copy.md'
+  - Docker Registry:
+    - Publishing images to the Docker hub: 'registry/dockerhub.md'
 
 
 copyright: Copyright &copy; 2021 INFN
