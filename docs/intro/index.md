@@ -1,7 +1,7 @@
-Let's start with interactive image build
 
+This is a quick recap of things that you already saw in the Part-1. The following steps guide you toward the interactive image building process. 
 
-#Take an existing immage and modify it 
+###Getting an image and apply some changes
 
 === "Command"
 ```bash
@@ -55,6 +55,8 @@ Get:15 http://security.ubuntu.com/ubuntu bionic-security/universe amd64 Packages
 
 ```
 
+###Check the differences with respect to the original image
+
 Once done type exit at the container prompt to leave the interactive session.
 Now let's run docker diff to see the difference between the base image and our container.
 
@@ -91,7 +93,7 @@ A /usr/share/figlet/646-hu.flc
     -  D	A file or directory was deleted
     -  C	A file or directory was changed
 
-#Commit the changes
+#Commit the changes and use your image
 
 The last step is now to commit the changes, that way we will create a new layer with the changes we made before, and a new image using this new layer.
 
