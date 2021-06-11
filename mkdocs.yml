@@ -27,5 +27,6 @@ nav:
   - Building images interactively : 
     - First step: 'intro/index.md'
   - Building docker images with Dockerfiles:
+    - First step: 'intro/index.md'
 
 copyright: Copyright &copy; 2021 INFN
