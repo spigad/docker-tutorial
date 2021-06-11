@@ -8,7 +8,11 @@ docker run -it ubuntu:18.04
 You will get something like the following output:
 
 ```
-
-WARNING: No swap limit support
+ _          _   _       
+| |        | | | |      
+| |     _  | | | |  __  
+|/ \   |/  |/  |/  /  \_
+|   |_/|__/|__/|__/\__/ 
+                        
 ```
 
