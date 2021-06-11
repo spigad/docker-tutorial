@@ -88,9 +88,9 @@ A /usr/share/figlet/646-hu.flc
 
 !!! tip
     Three different types of change are tracked by `docker diff `:
-    -  A	A file or directory was added
-    -  D	A file or directory was deleted
-    -  C	A file or directory was changed
+    -`A` A file or directory was added
+    -`D` A file or directory was deleted
+    -`C` A file or directory was changed
 
 ###Commit the changes and use your image
 
