@@ -30,8 +30,12 @@ nav:
     - Write the first Dockerfile: 'dockerfile/firsdockrefile.md'
     - The CMD and ENTRYPOINT verbs: 'dockerfile/cmd-entrypoint.md'
     - The COPY command: 'dockerfile/copy.md'
-  - Docker Registry:
+    - Additional commands: 'dockerfile/more-commands.md'
+    - Exercise: 'dockerfile/exercise.md'  
+  - Cache and dangling images: 
+    - What are none tags: '' 
+  - Docker Registry: 'cacheimaegs/cache-dangling.md'
     - Publishing images to the Docker hub: 'registry/dockerhub.md'
 
 
-copyright: Copyright &copy; 2021 INFN
+Credits for the material goes to many contributors among which Jérôme Petazzoni; 2021 INFN

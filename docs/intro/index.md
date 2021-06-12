@@ -21,9 +21,10 @@ root@844ec9e540a5:/#
 ```
 
 Run the command apt-get update to refresh the list of packages available to install.
+For this simple exercise we will use [Figlet](https://howtoinstall.co/en/figlet){:target="_blank"}
+
 Then run the command apt-get install figlet to install the program we are interested in.
 
-For this simple exercise we will use `figlet`
 
 === "Command"
 ```bash
