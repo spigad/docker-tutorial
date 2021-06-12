@@ -30,7 +30,7 @@ ubuntu                        18.04     81bcf752ac3d   3 weeks ago     63.1MB
 gcr.io/k8s-minikube/kicbase   v0.0.22   bcd131522525   5 weeks ago     1.09GB
 ```
 
-again: what the images with a `<none>` tag, you can see when you list all the images present on your system
+again: why there are these images with a `<none>` tag, you can see when you list all the images present on your system
 
 !!! tip
     Spolinig: these are intermediate cached images
@@ -42,16 +42,16 @@ docker system prune
 ```
 
 * Be carefull! this wil clean-up a lot: 
-   * all stopped containers
-   * all networks not used by at least one container
-   * all dangling images
-   * all dangling build cache
+    * all stopped containers
+    * all networks not used by at least one container
+    * all dangling images
+    * all dangling build cache
 
 there are other way to select what to remove see here [REF]
 
 !!! tip 
-    `docker rmi $(docker images -a --filter=dangling=true -q)`
-    `docker rm $(docker ps --filter=status=exited --filter=status=created -q)`
+    * `docker rmi $(docker images -a --filter=dangling=true -q)`
+    * `docker rm $(docker ps --filter=status=exited --filter=status=created -q)`
 
 once we have cleaned our system we will get something like the following: 
 
