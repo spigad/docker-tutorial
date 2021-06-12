@@ -140,9 +140,9 @@ ineed! All good!
 
 ### Optimize the building ( simple example ) 
 
-now, provided that you got the repo :  you can try to optimize a bit and use the `.dockerignore` file. 
+Now, provided that you got the repo: `git clone  https://github.com/spigad/simple-exercise.git`  you can try to optimize a bit and use the `.dockerignore` file. 
 
-so create the file with the following content: 
+So, you should create the file with the following content: 
 ```
 *.md
 .git*
