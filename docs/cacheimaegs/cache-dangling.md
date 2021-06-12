@@ -56,12 +56,12 @@ there are other way to select what to remove see here [REF]
 once we have cleaned our system we will get something like the following: 
 
 ```
-**$ docker images** 
+`**`$ docker images`**` 
 REPOSITORY                    TAG       IMAGE ID       CREATED       SIZE
 gcr.io/k8s-minikube/kicbase   v0.0.22   bcd131522525   5 weeks ago   1.09GB
 ubuntu                        latest    7e0aa2d69a15   7 weeks ago   72.7MB
 
-**$ docker images  -a**
+`**`$ docker images  -a`**`
 REPOSITORY                    TAG       IMAGE ID       CREATED       SIZE
 gcr.io/k8s-minikube/kicbase   v0.0.22   bcd131522525   5 weeks ago   1.09GB
 ubuntu                        latest    7e0aa2d69a15   7 weeks ago   72.7MB
@@ -80,7 +80,7 @@ CMD ["pippo"]
 
 Now we can build it and we will get something like this: 
 ```
-**docker build -t testnone .** 
+`**`docker build -t testnone .`**` 
 
 Sending build context to Docker daemon  2.048kB
 Step 1/5 : FROM ubuntu:18.04
@@ -90,7 +90,7 @@ d2e110be24e1: Pull complete
 889a7173dcfe: Pull complete 
 Digest: sha256:67b730ece0d34429b455c08124ffd444f021b81e06fa2d9cd0adaf0d0b875182
 Status: Downloaded newer image for ubuntu:18.04
- ---> **81bcf752ac3d**
+ ---> `**`81bcf752ac3d`**`
 Step 2/5 : RUN apt-get update
  ---> Running in 80bb3a4b5a8c
 ... ( remove output ) 
@@ -110,7 +110,7 @@ Step 5/5 : CMD ["pippo"]
  ---> Running in 67d507ed70c0
 Removing intermediate container 67d507ed70c0
  ---> f0684153d22f
-Successfully built **f0684153d22f**
+Successfully built `**`f0684153d22f`**`
 Successfully tagged testnone:latest
 ```
 and let's check again our system: 
