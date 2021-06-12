@@ -33,8 +33,8 @@ nav:
     - Additional commands: 'dockerfile/more-commands.md'
     - Exercise: 'dockerfile/exercise.md'  
   - Cache and dangling images: 
-    - What are none tags: '' 
-  - Docker Registry: 'cacheimaegs/cache-dangling.md'
+    - What are none tags: 'cacheimaegs/cache-dangling.md'
+  - Docker Registry: 
     - Publishing images to the Docker hub: 'registry/dockerhub.md'
 
 
