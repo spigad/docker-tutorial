@@ -55,8 +55,8 @@ there are other way to select what to remove see here [REF]
 
 once we have cleaned our system we will get something like the following: 
 
-```
-```**```$ docker images```**``` 
+`
+`**`$ docker images`**` 
 REPOSITORY                    TAG       IMAGE ID       CREATED       SIZE
 gcr.io/k8s-minikube/kicbase   v0.0.22   bcd131522525   5 weeks ago   1.09GB
 ubuntu                        latest    7e0aa2d69a15   7 weeks ago   72.7MB
@@ -66,7 +66,7 @@ REPOSITORY                    TAG       IMAGE ID       CREATED       SIZE
 gcr.io/k8s-minikube/kicbase   v0.0.22   bcd131522525   5 weeks ago   1.09GB
 ubuntu                        latest    7e0aa2d69a15   7 weeks ago   72.7MB
 tutor5@tutorvm-5:~/myimage$ 
-```
+`
 
 this is time now to build our application. So let's start again with our Dockerfile:
 
