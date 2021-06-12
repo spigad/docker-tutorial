@@ -84,3 +84,68 @@ USER pythonappuser
 
 ENTRYPOINT ["./startup.sh"]
 ```
+
+Now we can try to build it: 
+
+```bash
+docker build -t mycontainerizedapp .
+```
+
+### Playing with our Dockerized - App
+
+First of all let's check it is doing what is expected. So we should run the container and check that the Python App is actually running. So
+
+```bash
+docker run -d mycontainerizedapp
+```
+
+now we can get the ID of the container ( you know how to do that now ) and then we can get a bash in to our container: 
+
+```bash
+docker exec -ti 9ea45699221b bash
+```
+
+Now if it is correctly running it should tell us something if we ask someting on its port 3000 ( remmember what we set in our Dockerfile above )
+
+```bash
+pythonappuser@9ea45699221b:~$ curl localhost:3000
+{"env":"prod"}
+pythonappuser@9ea45699221b:~$ 
+```
+here we go!! it works nicely. 
+Very good, let's do a step further. We know that we can map the exposed port to the HOST.. so let's do it 
+
+```bash
+docker run -d -p 3000:3000 mycontainerizedapp 
+```
+if it is all working now I shouldn't need to enter the container to check the status of the App on port 3000.. let's try
+
+```bash
+curl localhost:3000
+{"env":"prod"}
+```
+It works. So all is ok. Final step now is about the env variable. Can we re-define it when we startup the continer ? yes we can, remember the -e 
+
+```bash
+ docker run -d -p 3000:3000 -e ENVIRONMENT=ciccio mycontainerizedapp 
+```
+
+If it worked correctly we should get something different wrt the previous test by querying the port 3000.. let's try: 
+
+```bash
+curl localhost:3000
+{"env":"ciccio"}
+```
+ineed! All good! 
+
+### Optimize the building ( simple example ) 
+
+now, provided that you got the repo :  you can try to optimize a bit and use the `.dockerignore` file. 
+
+so create the file with the following content: 
+```
+*.md
+.git*
+```
+
+and then you can check the effect of the `.dockerignore` by comaparing the `Sending build context to Docker daemon` with and without. 
