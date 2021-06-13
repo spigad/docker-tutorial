@@ -55,9 +55,12 @@ there are other way to select what to remove see here [REF]
 
 once we have cleaned our system we will get something like the following: 
 
+```
+
 <pre>
 sample <b>sample</b> sample
 </pre>
+```
 
 ```
 __$ docker images__ 
