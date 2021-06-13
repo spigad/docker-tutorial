@@ -19,16 +19,16 @@ vim Dockerfile
 ```
 (feel fre to choose any editor you like) and add the follwing content: 
 
-```bash
+```Dockerfile
 FROM ubuntu:18.04
 RUN apt-get update
 RUN apt-get install figlet
 ```
 
 !!! tip
-    `FROM` indicates the base image for our build.
-        * Each RUN line will be executed by Docker during the build.
-        * RUN commands must be non-interactive. (No input can be provided to Docker during the build.) this is why we add the -y flag to apt-get.
+    * `FROM` indicates the base image for our build.
+    * Each RUN line will be executed by Docker during the build.
+    * RUN commands must be non-interactive. (No input can be provided to Docker during the build.) this is why we add the -y flag to apt-get.
 
 
 Save our file, then execute:
@@ -69,10 +69,10 @@ Let's analyze the oputput:
 `Sending build context to Docker daemon 2.048 kB`
 
 - The build context is the . directory given to docker build.
-  - It is sent (as an archive) by the Docker client to the Docker daemon.
-    - This allows to use a remote machine to build using local files.
-  - Be careful (or patient) if that directory is big and your link is slow.
-    - You can speed up the process with a .dockerignore file which tells docker to ignore specific files in the directory, ignore files that you won't need in the build context!
+    - It is sent (as an archive) by the Docker client to the Docker daemon.
+        - This allows to use a remote machine to build using local files.
+    - Be careful (or patient) if that directory is big and your link is slow.
+        - You can speed up the process with a .dockerignore file which tells docker to ignore specific files in the directory, ignore files that you won't need in the build context!
 
 
 ```
@@ -92,19 +92,22 @@ A container (9f07f31f5608) is created from the base image.
 
 
 !!! tip 
-    After each build step, Docker takes a snapshot of the resulting image and before executing a step, Docker checks if it has already built the same sequence.
-   Docker uses the exact strings defined in your Dockerfile, so the following two are not the same!
-   - `RUN apt-get install figlet cowsay`
-   - `RUN apt-get install cowsay figlet`
+    - After each build step, Docker takes a snapshot of the resulting image and before executing a step, Docker checks if it has already built the same sequence.
+    Docker uses the exact strings defined in your Dockerfile, so the following two are not the same!
+    - `RUN apt-get install figlet cowsay`
+    - `RUN apt-get install cowsay figlet`
    
- - You can force a rebuild with docker build --no-cache ....
+    - You can force a rebuild with docker build --no-cache ....
 
 ### Running the image
 The resulting image is not different from the one produced manually. :)
 
 
-```
+```bash
 docker run -ti myfiglet  bash
+```
+and issue something like: 
+```
 root@4d7d8ec44135:/# figlet ciao ciao 
       _                    _             
   ___(_) __ _  ___     ___(_) __ _  ___  
@@ -113,5 +116,4 @@ root@4d7d8ec44135:/# figlet ciao ciao
  \___|_|\__,_|\___/   \___|_|\__,_|\___/ 
                                          
 root@4d7d8ec44135:/# 
-
 ```
