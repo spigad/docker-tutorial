@@ -27,13 +27,13 @@ nav:
   - Introduction: 
     - Building images interactively: 'intro/index.md'
   - Dockerfiles: 
+    - Overview of basic instructions : 'dockerfile/instructions.md'
     - Write the first Dockerfile: 'dockerfile/first-dockrefile.md'
     - The CMD and ENTRYPOINT verbs: 'dockerfile/cmd-entrypoint.md'
     - Copying files during the build: 'dockerfile/copy.md'
-    - Additional commands: 'dockerfile/more-commands.md'
     - Exercise: 'dockerfile/exercise.md'  
   - Cache and dangling images: 
-    - What are <none> tags: 'cacheimaegs/cache-dangling.md'
+    - ... or what are those nasty <none> tags: 'cacheimaegs/cache-dangling.md'
   - Docker Registry: 
     - Publishing images to the Docker hub: 'registry/dockerhub.md'
 

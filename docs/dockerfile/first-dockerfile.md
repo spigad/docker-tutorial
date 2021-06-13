@@ -30,6 +30,7 @@ RUN apt-get install -y figlet
     * Each RUN line will be executed by Docker during the build.
     * RUN commands must be non-interactive. (No input can be provided to Docker during the build.) this is why we add the -y flag to apt-get.
 
+Every Dockerfile must start with the FROM instruction. The idea behind is that you need a starting point to build your image. You can start `FROM scratch`, scratch is an explicitly empty image on the Docker store that is used to build base images such as [Alpine](https://hub.docker.com/_/alpine) a lightweight linux distro that allows you to reduce the overall size of Docker images.
 
 Save our file, then execute:
 === "Command"
@@ -94,11 +95,13 @@ A container (9f07f31f5608) is created from the base image.
 !!! tip 
     - After each build step, Docker takes a snapshot of the resulting image and before executing a step, Docker checks if it has already built the same sequence.
     Docker uses the exact strings defined in your Dockerfile, so the following two are not the same!
-    - `RUN apt-get install figlet cowsay`
+    - `RUN apt-get install figlet [cowsay](https://cran.r-project.org/web/packages/cowsay/vignettes/cowsay_tutorial.html)
+`
     - `RUN apt-get install cowsay figlet`   
     - You can force a rebuild with docker build --no-cache ....
 
-For details about [cowsay](https://cran.r-project.org/web/packages/cowsay/vignettes/cowsay_tutorial.html)
+And to close the loop: (only) `RUN`, `COPY` and `ADD` instructions create layers to improve build performance. The main advantage of image layering lies in image caching.
+
 ### Running the image
 The resulting image is not different from the one produced manually. :)
 
