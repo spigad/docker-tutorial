@@ -132,9 +132,9 @@ alright but then if I check further:
 tutor5@tutorvm-5:~/myimage$ docker images -a 
 REPOSITORY                    TAG       IMAGE ID       CREATED              SIZE
 testnone                      latest    f0684153d22f   About a minute ago   101MB
-\<none\>                        \<none\>    <b>cca054892aec</b>   About a minute ago   101MB
-`<`none`>`                        \<none\>    <b>9ad1cce70073</b>   About a minute ago   101MB
-\<\none\>\                        \<none\>    <b>e095319ffe18</b>   2 minutes ago        99.7MB
+&lt none &gt                        \<none\>    <b>cca054892aec</b>   About a minute ago   101MB
+&ltnone&gt                        \<none\>    <b>9ad1cce70073</b>   About a minute ago   101MB
+&ltnone&gt                        &ltnone&gt    <b>e095319ffe18</b>   2 minutes ago        99.7MB
 ubuntu                        18.04     81bcf752ac3d   3 weeks ago          63.1MB
 gcr.io/k8s-minikube/kicbase   v0.0.22   bcd131522525   5 weeks ago          1.09GB
 ubuntu                        latest    7e0aa2d69a15   7 weeks ago          72.7MB
