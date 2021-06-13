@@ -11,7 +11,7 @@ As example: we want to se a nice hello message, and using a custom font in our d
 
 Let's modify our Dockerfile to support this default: 
 
-```
+```Dockerfile
 FROM ubuntu
 RUN apt-get update
 RUN apt-get install figlet

@@ -22,7 +22,7 @@ vim Dockerfile
 ```Dockerfile
 FROM ubuntu:18.04
 RUN apt-get update
-RUN apt-get install figlet
+RUN apt-get install -y figlet
 ```
 
 !!! tip
@@ -38,8 +38,8 @@ docker build -t myfiglet .
 ```
 
 !!! tip
-    `-t` indicates the tag to apply to the image.
-    `.` indicates the location of the build context.
+    - `-t` indicates the tag to apply to the image.
+    - `.` indicates the location of the build context.
 
 The output you will get is something like the follwing 
 
@@ -95,10 +95,10 @@ A container (9f07f31f5608) is created from the base image.
     - After each build step, Docker takes a snapshot of the resulting image and before executing a step, Docker checks if it has already built the same sequence.
     Docker uses the exact strings defined in your Dockerfile, so the following two are not the same!
     - `RUN apt-get install figlet cowsay`
-    - `RUN apt-get install cowsay figlet`
-   
+    - `RUN apt-get install cowsay figlet`   
     - You can force a rebuild with docker build --no-cache ....
 
+For details about [cowsay](https://cran.r-project.org/web/packages/cowsay/vignettes/cowsay_tutorial.html)
 ### Running the image
 The resulting image is not different from the one produced manually. :)
 
