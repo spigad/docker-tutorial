@@ -202,7 +202,7 @@ and now check again your images..
 
 REPOSITORY                    TAG       IMAGE ID       CREATED          SIZE
 testnone                      latest    <b>3624cff02928</b>   4 seconds ago    101MB
-&ltnon&gt                        &ltnone&gt    f0684153d22f   17 minutes ago   101MB
+&ltnone&gt                        &ltnone&gt    f0684153d22f   17 minutes ago   101MB
 ubuntu                        18.04     81bcf752ac3d   3 weeks ago      63.1MB
 gcr.io/k8s-minikube/kicbase   v0.0.22   bcd131522525   5 weeks ago      1.09GB
 ubuntu                        latest    7e0aa2d69a15   7 weeks ago      72.7MB

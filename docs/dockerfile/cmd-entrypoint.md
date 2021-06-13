@@ -14,7 +14,7 @@ Let's modify our Dockerfile to support this default:
 ```Dockerfile
 FROM ubuntu
 RUN apt-get update
-RUN apt-get install figlet
+RUN apt-get install -y figlet
 CMD figlet -f script hello
 ```
 
@@ -82,10 +82,10 @@ docker run figlet Good Morning
 
 We will use the `ENTRYPOINT` verb in Dockerfile
 
-```
+```Dockerfile
 FROM ubuntu
 RUN apt-get update
-RUN apt-get install figlet
+RUN apt-get install -y figlet
 ENTRYPOINT ["figlet", "-f", "script"]
 ```
 !!! tip
@@ -143,10 +143,10 @@ If we don't specify extra command-line arguments when starting the container, th
 
 Otherwise, our extra command-line arguments are used instead of CMD.
 
-```
+```Dockerfile
 FROM ubuntu:18.04
 RUN apt-get update
-RUN apt-get install figlet
+RUN apt-get install -y figlet
 ENTRYPOINT ["figlet", "-f", "script"]
 CMD ["ciccio"]
 ```
