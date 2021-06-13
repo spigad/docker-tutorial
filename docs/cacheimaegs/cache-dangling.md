@@ -55,26 +55,19 @@ there are other way to select what to remove see here [REF]
 
 once we have cleaned our system we will get something like the following: 
 
-<pre><code>Emphasis on <b>this</b>
-</code></pre>
-
-<pre>
-sample <b>sample</b> sample
-</pre>
-
-```
-__$ docker images__ 
+<pre><code> 
+<b>$ docker images</b>
 REPOSITORY                    TAG       IMAGE ID       CREATED       SIZE
 gcr.io/k8s-minikube/kicbase   v0.0.22   bcd131522525   5 weeks ago   1.09GB
 ubuntu                        latest    7e0aa2d69a15   7 weeks ago   72.7MB
 
 
-__$ docker images  -a__
+<b>$ docker images  -a</b>
 REPOSITORY                    TAG       IMAGE ID       CREATED       SIZE
 gcr.io/k8s-minikube/kicbase   v0.0.22   bcd131522525   5 weeks ago   1.09GB
 ubuntu                        latest    7e0aa2d69a15   7 weeks ago   72.7MB
 tutor5@tutorvm-5:~/myimage$ 
-```
+</code></pre>
 
 this is time now to build our application. So let's start again with our Dockerfile:
 
@@ -87,8 +80,8 @@ CMD ["pippo"]
 ```
 
 Now we can build it and we will get something like this: 
-```
-`**`docker build -t testnone .`**` 
+<pre><code>
+<b>docker build -t testnone .</b>
 
 Sending build context to Docker daemon  2.048kB
 Step 1/5 : FROM ubuntu:18.04
@@ -98,7 +91,7 @@ d2e110be24e1: Pull complete
 889a7173dcfe: Pull complete 
 Digest: sha256:67b730ece0d34429b455c08124ffd444f021b81e06fa2d9cd0adaf0d0b875182
 Status: Downloaded newer image for ubuntu:18.04
- ---> `**`81bcf752ac3d`**`
+ ---> <b>81bcf752ac3d</b>
 Step 2/5 : RUN apt-get update
  ---> Running in 80bb3a4b5a8c
 ... ( remove output ) 
@@ -118,47 +111,50 @@ Step 5/5 : CMD ["pippo"]
  ---> Running in 67d507ed70c0
 Removing intermediate container 67d507ed70c0
  ---> f0684153d22f
-Successfully built `**`f0684153d22f`**`
+Successfully built <b>f0684153d22f</b>
 Successfully tagged testnone:latest
-```
+</pre></code>
+
 and let's check again our system: 
 
-```
+<pre><code>
 tutor5@tutorvm-5:~/myimage$ docker images
 REPOSITORY                    TAG       IMAGE ID       CREATED              SIZE
-testnone                      latest    **f0684153d22f**   About a minute ago   101MB
-ubuntu                        18.04     **81bcf752ac3d**   3 weeks ago          63.1MB
+testnone                      latest    <b>f0684153d22f</b>   About a minute ago   101MB
+ubuntu                        18.04     <b>81bcf752ac3d</b>   3 weeks ago          63.1MB
 gcr.io/k8s-minikube/kicbase   v0.0.22   bcd131522525   5 weeks ago          1.09GB
 ubuntu                        latest    7e0aa2d69a15   7 weeks ago          72.7MB
-```
+</pre></code>
+
 alright but then if I check further: 
  
-```
+<pre><code>
 tutor5@tutorvm-5:~/myimage$ docker images -a 
 REPOSITORY                    TAG       IMAGE ID       CREATED              SIZE
 testnone                      latest    f0684153d22f   About a minute ago   101MB
-<none>                        <none>    **cca054892aec**   About a minute ago   101MB
-<none>                        <none>    **9ad1cce70073**   About a minute ago   101MB
-<none>                        <none>    **e095319ffe18**   2 minutes ago        99.7MB
+<none>                        <none>    <b>cca054892aec</b>   About a minute ago   101MB
+<none>                        <none>    <b>9ad1cce70073</b>   About a minute ago   101MB
+<none>                        <none>    <b>e095319ffe18</b>   2 minutes ago        99.7MB
 ubuntu                        18.04     81bcf752ac3d   3 weeks ago          63.1MB
 gcr.io/k8s-minikube/kicbase   v0.0.22   bcd131522525   5 weeks ago          1.09GB
 ubuntu                        latest    7e0aa2d69a15   7 weeks ago          72.7MB
-```
+</pre></code>
+
 where those come from ? 
 Those are the intermediate images genereated while building our image:
 
-```
+</pre></code>
 Removing intermediate container 80bb3a4b5a8c
- ---> **e095319ffe18**
+ ---> <b>e095319ffe18</b>
 Step 3/5 : RUN apt-get install figlet
  ---> Running in 30b20940a069
 .... ( remove output )
 Removing intermediate container 30b20940a069
- ---> **9ad1cce70073**
+ ---> <b>9ad1cce70073</b>
 Step 4/5 : ENTRYPOINT ["figlet", "-f", "script"]
  ---> Running in 911a64ae9765
 Removing intermediate container 911a64ae9765
- ---> **cca054892aec**
+ ---> <b>cca054892aec</b>
 ```
 
 - a container is run
@@ -168,17 +164,17 @@ Removing intermediate container 911a64ae9765
 
 Now the last step.. let's change our build starting from the previous Dockerfile and changing it: 
 
-```
+```Dockerfile
 FROM ubuntu:18.04
 RUN apt-get update
 RUN apt-get install -y figlet
 ENTRYPOINT ["figlet", "-f", "script"]
-**CMD ["ciccio"]**
+CMD ["ciccio"]  <----
 ```
 
 build it as we did before: 
-```
-**docker build -t testnone .**
+<pre><code>
+<b>docker build -t testnone .</b>
 Sending build context to Docker daemon  2.048kB
 Step 1/5 : FROM ubuntu:18.04
  ---> 81bcf752ac3d
@@ -195,23 +191,22 @@ Step 5/5 : CMD ["Ciccio"]
  ---> Running in 976759d6217c
 Removing intermediate container 976759d6217c
  ---> 3624cff02928
-Successfully built **3624cff02928**
+Successfully built <b>3624cff02928</b>
 Successfully tagged testnone:latest
-
-```
+</pre></code>
 
 and now check again your images.. 
 
-```
-**docker images**
+<pre><code>
+<b>docker images</b>
 
 REPOSITORY                    TAG       IMAGE ID       CREATED          SIZE
-testnone                      latest    **3624cff02928**   4 seconds ago    101MB
+testnone                      latest    <b>3624cff02928</b>   4 seconds ago    101MB
 <none>                        <none>    f0684153d22f   17 minutes ago   101MB
 ubuntu                        18.04     81bcf752ac3d   3 weeks ago      63.1MB
 gcr.io/k8s-minikube/kicbase   v0.0.22   bcd131522525   5 weeks ago      1.09GB
 ubuntu                        latest    7e0aa2d69a15   7 weeks ago      72.7MB
-```
+</pre></code>
 
 Now, this id **f0684153d22f** is not more linked to the `testnone`  as the second build has set it on the newly created image (the one containing the changes we did in Dockerfile)
 
@@ -224,3 +219,5 @@ Finally, in order to check ( and possibly remove ) the dangling images:
 ```bash
  docker images -a --filter=dangling=true 
 ```
+
+
