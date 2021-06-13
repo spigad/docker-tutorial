@@ -113,7 +113,7 @@ Removing intermediate container 67d507ed70c0
  ---> f0684153d22f
 Successfully built <b>f0684153d22f</b>
 Successfully tagged testnone:latest
-</pre></code>
+</code></pre>
 
 and let's check again our system: 
 
@@ -124,7 +124,7 @@ testnone                      latest    <b>f0684153d22f</b>   About a minute ago
 ubuntu                        18.04     <b>81bcf752ac3d</b>   3 weeks ago          63.1MB
 gcr.io/k8s-minikube/kicbase   v0.0.22   bcd131522525   5 weeks ago          1.09GB
 ubuntu                        latest    7e0aa2d69a15   7 weeks ago          72.7MB
-</pre></code>
+</code></pre>
 
 alright but then if I check further: 
  
@@ -138,12 +138,12 @@ testnone                      latest    f0684153d22f   About a minute ago   101M
 ubuntu                        18.04     81bcf752ac3d   3 weeks ago          63.1MB
 gcr.io/k8s-minikube/kicbase   v0.0.22   bcd131522525   5 weeks ago          1.09GB
 ubuntu                        latest    7e0aa2d69a15   7 weeks ago          72.7MB
-</pre></code>
+</code></pre>
 
 where those come from ? 
 Those are the intermediate images genereated while building our image:
 
-</pre></code>
+<pre><code>
 Removing intermediate container 80bb3a4b5a8c
  ---> <b>e095319ffe18</b>
 Step 3/5 : RUN apt-get install figlet
@@ -155,7 +155,7 @@ Step 4/5 : ENTRYPOINT ["figlet", "-f", "script"]
  ---> Running in 911a64ae9765
 Removing intermediate container 911a64ae9765
  ---> <b>cca054892aec</b>
-```
+</code></pre>
 
 - a container is run
 - changes corresponding to the instruction defined in the step are done inside of this container
@@ -193,7 +193,7 @@ Removing intermediate container 976759d6217c
  ---> 3624cff02928
 Successfully built <b>3624cff02928</b>
 Successfully tagged testnone:latest
-</pre></code>
+</code></pre>
 
 and now check again your images.. 
 
@@ -206,15 +206,15 @@ testnone                      latest    <b>3624cff02928</b>   4 seconds ago    1
 ubuntu                        18.04     81bcf752ac3d   3 weeks ago      63.1MB
 gcr.io/k8s-minikube/kicbase   v0.0.22   bcd131522525   5 weeks ago      1.09GB
 ubuntu                        latest    7e0aa2d69a15   7 weeks ago      72.7MB
-</pre></code>
+</code></pre>
 
-Now, this id **f0684153d22f** is not more linked to the `testnone`  as the second build has set it on the newly created image (the one containing the changes we did in Dockerfile)
+Now, this IMAGE ID **f0684153d22f** is not more linked to the image named `testnone`  cause the second build has set it on the newly created image (the one containing the changes we did in Dockerfile)
 
 The previous image, now considered as dangling, is not referenced anymore. We can remove it, but we probably first need to make sure we have not used the same tag in the second build by mistake (that happens :) )
 
 If needed, you can tag again the dandling image any other image ( we saw it previously ) 
 
-Finally, in order to check ( and possibly remove ) the dangling images: 
+Finally, in order to check ( and possibly remove ) the dangling images you can play with something like this: 
 
 ```bash
  docker images -a --filter=dangling=true 
