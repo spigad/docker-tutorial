@@ -7,5 +7,9 @@ The main objective of this part two is to learn how to build our image, to run o
     - Learn about new commands: docker commit, docker tag, and docker diff.
 
 - Building docker images with Dockerfiles
+    - Basic "instructions": a quick overview.
     - Write a Dockerfile.
+	- details on CMD/ENTRIPOINT/COPY
     - Build an image from a Dockerfile.
+    - A Python App example
+    - Extra: multi-stage 
