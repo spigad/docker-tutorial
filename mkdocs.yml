@@ -36,6 +36,7 @@ nav:
     - ... or what are those nasty <none> tags: 'cacheimaegs/cache-dangling.md'
   - Docker Registry: 
     - Publishing images to the Docker hub: 'registry/dockerhub.md'
-
+  - multi-stage example:
+    - Our first multi-stage Dockerfile: 'multistage/multistage-example.md'
 
 Credits: the material had many contributors among which Jérôme Petazzoni; 2021 INFN

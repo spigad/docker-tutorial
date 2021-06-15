@@ -124,7 +124,11 @@ if it is all working now I shouldn't need to enter the container to check the st
 curl localhost:3000
 {"env":"prod"}
 ```
-It works. So all is ok. Final step now is about the env variable. Can we re-define it when we startup the continer ? yes we can, remember the -e 
+It works. So all is ok. 
+!!! tip
+    Remember that the `EXPOSE` instruction does not actually publish the port. It functions as a type of documentation between the person who builds the image and the person who runs the container, about which ports are intended to be published
+
+Final step now is about the env variable. Can we re-define it when we startup the continer ? yes we can, remember the -e 
 
 ```bash
  docker run -d -p 3000:3000 -e ENVIRONMENT=ciccio mycontainerizedapp 
