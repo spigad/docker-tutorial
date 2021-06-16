@@ -1,13 +1,13 @@
 We’ll cover the following basic instructions to get you started:
 
 * **FROM** - every Dockerfile starts with FROM, with the introduction of multi-stage builds, you can have more than one FROM instruction in one Dockerfile.
-* **COPY** vs **ADD** - Sometime confuesd...
+* **COPY** vs **ADD** - Add directories and files to your Docker image. ( Sometime confuesd... )
 * **ENV** - set environment variables.
 * **RUN** - let’s run commands.
 * **USER** - when root is too mainstream.
 * **WORKDIR** - set the working directory.
 * **EXPOSE** - get your ports right.
-* **ONBUILD** - give more flexibility to your team and clients.
+<!---* **ONBUILD** - give more flexibility to your team.-->
 
 
 ### FROM
@@ -23,7 +23,7 @@ It’s called a multi-stage build and you can read about it [here](https://docs.
 
 This is why every section that starts with FROM in your Dockerfile is called a build stage (even in the simple case of having only one FROM instruction). You can specify the name of the build stage in the form `FROM <image>[:tag] [AS <name>]`.
 
-## COPY vs ADD
+### COPY vs ADD
 Both ADD and COPY are designed to add directories and files to your Docker image in the form of `ADD <src>... <dest>` or `COPY <src>... <dest>`. Most resources, **suggest to use COPY**.
 
 The reason behind this is that ADD has extra features compared to COPY that make ADD more unpredictable and a bit over-designed. ADD can pull files from url sources, which COPY cannot. ADD can also extract compressed files assuming it can recognize and handle the format. You cannot extract archives with COPY.
@@ -32,7 +32,7 @@ The ADD instruction was added to Docker first, and COPY was added later to provi
 
 If you want to pull files from the web into your image I would suggest to use RUN and curl and uncompress your files with RUN and commands you would use on the command line.
 
-## ENV
+### ENV
 ENV is used to define environment variables. The interesting thing about ENV is that it does two things:
 
 - You can use it to define environment variables that will be available in your container. So when you build an image and start up a container with that image you’ll find that the environment variable is available and is set to the value you specified in the Dockerfile.
@@ -52,7 +52,7 @@ A very convenient way to define the working directory, it will be used with subs
 
 If the directory does not exists, Docker will create it for you.
 
-## EXPOSE
+### EXPOSE
 An important instruction to inform your users about the ports your application is listening on. EXPOSE will not publish the port, you need to use docker run -p... to do that when you start the container.
 
 ### CMD and ENTRYPOINT
@@ -62,13 +62,9 @@ You can override CMD when you’re starting up your container by specifying your
 
 You can only specify one CMD in a Dockerfile (OK, physically you can specify more than one, but only the last one will be used).
 
-So what’s the deal with ENTRYPOINT? When you specify an entry point, your image will work a bit differently. You use ENTRYPOINT as the main executable of your image. In this case whatever you specify in CMD will be added to ENTRYPOINT as parameters.
+So what’s the deal with ENTRYPOINT? When you specify an entry point, your image will work a bit differently. You use ENTRYPOINT as **the main executable of your image**. In this case whatever you specify in CMD will be added to ENTRYPOINT as parameters.
 
-ENTRYPOINT ["git"]
-CMD ["--help"]
-This way you can build Docker images that mimic the behavior of the main executable you specify in ENTRYPOINT.
-
-### ONBUILD
+<!--- ### ONBUILD
 This is so nice. You can specify instructions with ONBUILD that will be executed when your image is used as the base image of another Dockerfile. :)
 
 This is useful when you want to create a generic base image to be used in different variations by many Dockerfiles, or in many projects or by many parties.
@@ -80,5 +76,5 @@ So what you do instead is to add ONBUILD instructions. So you can do something l
 ONBUILD COPY . /usr/src/app
 ONBUILD RUN /usr/src/app/mybuild.sh
 ONBUILD instructions will be executed right after the FROM instruction in the downstram Dockerfile
-
+-->
 
