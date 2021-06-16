@@ -28,7 +28,7 @@ nav:
     - Building images interactively: 'intro/index.md'
   - Dockerfiles: 
     - Overview of basic instructions : 'dockerfile/instructions.md'
-    - Write the first Dockerfile: 'dockerfile/first-dockrefile.md'
+    - Write the first Dockerfile: 'dockerfile/first-dockerfile.md'
     - The CMD and ENTRYPOINT verbs: 'dockerfile/cmd-entrypoint.md'
     - Copying files during the build: 'dockerfile/copy.md'
     - Exercise: 'dockerfile/exercise.md'  

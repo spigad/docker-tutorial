@@ -23,10 +23,8 @@ RUN make hello
 FROM ubuntu
 COPY --from=compiler /hello /hello
 CMD /hello
-Let's build it, and check that it works correctly:
 ```
-
-let's build it: 
+Let's build it, and check that it works correctly:
 ```bash
 docker build -t hellomultistage .
 ```
