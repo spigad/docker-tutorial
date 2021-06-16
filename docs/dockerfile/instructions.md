@@ -42,7 +42,7 @@ ENV is used to define environment variables. The interesting thing about ENV is 
 RUN will execute commands, so it’s one of the most-used instructions. I would like to highlight two points:
 
 - You’ll use a lot of apt-get type of commands to add new packages to your image. It’s always advisable **to put apt-get update and apt-get install commands on the same line**. This is important because of layer caching. Having these on two separate lines would mean that if you add a new package to your install list, the layer with apt-get update will not be invalidated in the layer cache and you might end up in a mess. Read more here.
-- RUN has two forms; `RUN <command>` (called shell form) and `RUN ["executable", "param1", "param2"]` called exec form. Please note that `RUN <command>` will invoke a shell automatically (/bin/sh -c by default), while the exec form will not invoke a command shell. If you want to tackle a problem around this read here.
+- RUN has two forms; `RUN <command>` (called shell form) and `RUN ["executable", "param1", "param2"]` called exec form. Please note that `RUN <command>` will invoke a shell automatically (/bin/sh -c by default), while the exec form will not invoke a command shell. 
 
 ### USER
 Don’t run your stuff as root, use the USER instruction to specify the user. This user will be used to run any subsequent RUN, CMD AND ENDPOINT instructions in your Dockerfile.
@@ -50,10 +50,10 @@ Don’t run your stuff as root, use the USER instruction to specify the user. Th
 ### WORKDIR
 A very convenient way to define the working directory, it will be used with subsequent RUN, CMD, ENTRYPOINT, COPY and ADD instructions. You can specify WORKDIR multiple times in a Dockerfile.
 
-If the directory does not exists, Docker will create it for you.
+**If the directory does not exists, Docker will create it for you.**
 
 ### EXPOSE
-An important instruction to inform your users about the ports your application is listening on. EXPOSE will not publish the port, you need to use docker run -p... to do that when you start the container.
+An important instruction to inform your users about the ports your application is listening on. **EXPOSE will not publish the port**, you need to use docker run -p... to do that when you start the container.
 
 ### CMD and ENTRYPOINT
 CMD is the instruction to specify what component is to be run by your image with arguments in the following form: CMD [“executable”, “param1”, “param2”…].
