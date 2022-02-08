@@ -77,7 +77,7 @@ And what about if We want to be able to specify a different message on the comma
 Example: we  would like to be able to do this:
 
 ```
-docker run figlet Good Morning
+docker run myfiglet Good Morning
 ```
 
 We will use the `ENTRYPOINT` verb in Dockerfile
