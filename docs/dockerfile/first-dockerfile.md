@@ -97,7 +97,6 @@ A container (9f07f31f5608) is created from the base image.
     - After each build step, Docker takes a snapshot of the resulting image and before executing a step, Docker checks if it has already built the same sequence.
     Docker uses the exact strings defined in your Dockerfile, so the following two are not the same!
     - `RUN apt-get install figlet [cowsay](https://cran.r-project.org/web/packages/cowsay/vignettes/cowsay_tutorial.html)
-`
     - `RUN apt-get install cowsay figlet`   
     - You can force a rebuild with docker build --no-cache ....
 
