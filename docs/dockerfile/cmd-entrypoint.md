@@ -68,7 +68,7 @@ If we want to get a shell into our container (instead of running figlet), we jus
 Try it:
 
 ```bash
-docker run -it figlet bash
+docker run -it myfiglet bash
 ```
 
 ### Using ENTRYPOINT
