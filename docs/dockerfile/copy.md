@@ -36,7 +36,8 @@ CMD /hello
 ```
 
 **Exercise:**
-Create hello.c and Dockerfile in the same directory:
+
+- Create hello.c and Dockerfile in the same directory:
 - Run docker build -t hello . in this directory.
 - Run docker run hello, you should see Hello, world!.
 
