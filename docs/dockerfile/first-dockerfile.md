@@ -85,7 +85,8 @@ Removing intermediate container 9f07f31f5608
  ---> e2ed94338e24
 ```
 
-A container (9f07f31f5608) is created from the base image.  
+A container (9f07f31f5608) is created from the base image. 
+
 - The RUN command is executed in this container.
 - The container is committed into an image (e2ed94338e24).
 - The build container (9f07f31f5608) is removed.
